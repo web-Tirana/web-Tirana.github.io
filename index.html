@@ -2,125 +2,127 @@
 <html lang="sq"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Taverna Demo – Tiranë</title>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0E1A14;--card:#16261D;--ink:#F1F5F2;--mut:#A9B8AF;--line:#2C4237;--acc:#E8B04A}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,sans-serif}
-h1,h2{font-family:"Bricolage Grotesque",system-ui,sans-serif;margin:0}
-.ph{background:linear-gradient(135deg,#1d3a2c,#4a5d3a)}
-svg.art,img{display:block;width:100%;height:100%;object-fit:cover}
-.top{position:fixed;top:0;left:0;right:0;z-index:9;display:flex;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top,0px) + 10px) 18px 10px;background:linear-gradient(#0E1A14cc,transparent)}
-.top b{font:800 18px "Bricolage Grotesque",sans-serif}
-.lang button{border:1px solid #fff6;background:#0008;color:#fff;font:600 13px system-ui;padding:6px 11px;cursor:pointer}
-.lang button:first-child{border-radius:99px 0 0 99px}.lang button:last-child{border-radius:0 99px 99px 0}
-.lang button.on{background:#fff;color:#000}
-.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end}
-.hero .bg{position:absolute;inset:0}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(#0E1A1455,#0E1A14f2)}
-.hero .in{position:relative;z-index:2;padding:0 20px 40px;max-width:680px}
-h1{font-size:clamp(40px,12vw,68px);line-height:1;letter-spacing:-1.5px}
-.hero p{color:#dfe8e2;margin:12px 0 22px;font-size:18px}
-.btn{display:inline-block;text-decoration:none;font-weight:700;padding:13px 22px;border-radius:99px;margin:0 8px 8px 0}
-.b1{background:var(--acc);color:#1a1405}.b2{border:1px solid #fff8;color:#fff}
-section{padding:54px 20px;max-width:680px;margin:0 auto}
-h2{font-size:32px;margin-bottom:14px}
-.two{display:grid;gap:16px}.two .pic{height:240px;border-radius:14px;overflow:hidden}
-.tabs{display:flex;gap:8px;overflow-x:auto;margin-bottom:10px;scrollbar-width:none}
-.tabs button{white-space:nowrap;background:var(--card);color:var(--ink);border:1px solid var(--line);padding:8px 16px;border-radius:99px;font:600 14px system-ui;cursor:pointer}
-.tabs button.on{background:var(--acc);color:#1a1405;border-color:var(--acc)}
-.it{padding:11px 0}.row{display:flex;gap:8px;align-items:baseline}
-.nm{font-weight:600}.dt{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px)}
-.pr{color:var(--acc);font-weight:700}.ds{color:var(--mut);font-size:14px}
-.gal{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.gal div{height:150px;border-radius:12px;overflow:hidden}.gal div:first-child{grid-column:span 2;height:210px}
-.info{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:12px}
-.info b{display:block;margin-bottom:4px}.info span{color:var(--mut)}
-footer{text-align:center;color:var(--mut);font-size:13px;padding:10px 20px 90px}
-.wa{position:fixed;right:16px;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);background:#25D366;color:#06210f;font-weight:800;text-decoration:none;padding:14px 20px;border-radius:99px;z-index:9;box-shadow:0 6px 20px #0006}
-.pill{display:inline-block;margin:12px 0 0;padding:5px 12px;border-radius:99px;background:#0009;border:1px solid #fff4;font-size:14px}
-.pill i{display:inline-block;width:9px;height:9px;border-radius:50%;background:#3ddc84;margin-right:7px}.pill.cl i{background:#ff6b5e}
-.sr{width:100%;padding:12px 16px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:16px system-ui;margin-bottom:10px}
-.fc{display:flex;gap:8px;margin-bottom:10px}.fc button{background:none;color:var(--mut);border:1px dashed var(--line);padding:6px 14px;border-radius:99px;font:600 13px system-ui;cursor:pointer}.fc button.on{color:var(--acc);border-color:var(--acc)}
-.ch{font:800 20px "Bricolage Grotesque",sans-serif;margin:20px 0 2px;color:var(--acc)}
-.bd{font-size:11px;background:var(--acc);color:#1a1405;border-radius:99px;padding:1px 8px;margin-left:6px;font-weight:700}
-.ad{background:var(--card);color:var(--acc);border:1px solid var(--acc);border-radius:99px;width:30px;height:30px;font:700 18px system-ui;cursor:pointer;margin-left:6px}
-.ad em{font:700 13px system-ui;font-style:normal}
-form{display:grid;gap:10px}form input,form select{padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:16px system-ui;width:100%}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.rv{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:10px}.rv b{color:var(--acc)}.rv span{display:block;color:var(--mut);font-size:13px;margin-top:6px}
-.ord{position:fixed;left:16px;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);right:140px;background:var(--acc);color:#1a1405;font:700 15px system-ui;border:0;border-radius:99px;padding:14px 18px;z-index:9;display:none;cursor:pointer;text-align:left}
-button.btn{border:0;cursor:pointer;font-size:16px}
+:root{--bg:#0F0C09;--card:#1A1510;--ink:#F4EDE3;--mut:#B3A797;--line:#33291E;--acc:#D9A441;--red:#B8433A}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:800;line-height:1.1}
+img{display:block;width:100%;height:100%;object-fit:cover}
+header{position:fixed;top:0;left:0;right:0;z-index:20;padding:calc(env(safe-area-inset-top,0px) + 10px) 18px 8px;transition:.35s;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 12px}
+header.sc{background:#0F0C09ee;backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.logo{font:800 20px Fraunces,serif;color:var(--ink);text-decoration:none}.logo b{color:var(--acc)}
+nav{display:flex;gap:4px;order:3;width:100%;overflow-x:auto;scrollbar-width:none}
+nav a{color:var(--ink);text-decoration:none;font-size:14px;padding:6px 12px;border-radius:99px;opacity:.8;white-space:nowrap}
+nav a.on{background:var(--acc);color:#1a1405;opacity:1;font-weight:700}
+.lang button{border:1px solid #fff5;background:#0007;color:#fff;font:600 12px system-ui;padding:5px 10px;cursor:pointer}
+.lang button:first-child{border-radius:99px 0 0 99px}.lang button:last-child{border-radius:0 99px 99px 0}.lang .on{background:#fff;color:#000}
+.hero{position:relative;height:100svh;min-height:560px;display:flex;align-items:flex-end;overflow:hidden}
+.sl{position:absolute;inset:0;opacity:0;animation:fd 18s infinite}.sl:nth-child(2){animation-delay:6s}.sl:nth-child(3){animation-delay:12s}
+.sl img{animation:zm 18s infinite;transform-origin:center}
+@keyframes fd{0%{opacity:0}6%{opacity:1}33%{opacity:1}40%{opacity:0}100%{opacity:0}}
+@keyframes zm{0%{transform:scale(1)}40%{transform:scale(1.1)}100%{transform:scale(1.1)}}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(#0F0C0988,#0F0C09 96%)}
+.hi{position:relative;z-index:2;padding:0 20px 56px;max-width:720px}
+.hi>*{animation:up .9s both}.hi>*:nth-child(2){animation-delay:.2s}.hi>*:nth-child(3){animation-delay:.4s}
+@keyframes up{from{opacity:0;transform:translateY(26px)}}
+.eb{color:var(--acc);letter-spacing:.2em;font-size:12px;text-transform:uppercase;margin-bottom:10px}
+h1{font-size:clamp(40px,11vw,76px);letter-spacing:-1.5px}
+.hi p{margin:14px 0 24px;font-size:18px;color:#e6dccd}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:13px 24px;border-radius:99px;margin:0 8px 8px 0;transition:.25s;border:0;cursor:pointer;font-size:16px}
+.b1{background:var(--acc);color:#1a1405}.b1:hover{transform:translateY(-3px);box-shadow:0 8px 24px #d9a44144}
+.b2{border:1px solid #fff8;color:#fff;background:none}.b2:hover{background:#fff2}
+.pg{padding:96px 20px 60px;max-width:760px;margin:0 auto}.pg.h{padding:0;max-width:none}
+.sec{max-width:760px;margin:0 auto;padding:56px 20px}
+h2{font-size:clamp(30px,8vw,44px);margin-bottom:16px}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
+.two{display:grid;gap:22px}.ph{border-radius:16px;overflow:hidden;position:relative}
+.ph img{transition:transform .7s}.ph:hover img{transform:scale(1.07)}
+.cards{display:grid;gap:14px}.card{height:230px}.card span{position:absolute;left:0;right:0;bottom:0;padding:40px 16px 14px;background:linear-gradient(transparent,#000c);font:800 20px Fraunces,serif}
+.strip{background:var(--card);border-block:1px solid var(--line);padding:26px 20px;text-align:center;color:var(--mut)}.strip b{display:block;color:var(--acc);font:800 24px Fraunces,serif}
+.tabs{display:flex;gap:8px;margin-bottom:12px}.tabs button{flex:1;background:var(--card);color:var(--ink);border:1px solid var(--line);padding:11px;border-radius:12px;font:700 15px system-ui;cursor:pointer;transition:.2s}
+.tabs .on{background:var(--acc);color:#1a1405;border-color:var(--acc)}
+.it{padding:12px 0;border-bottom:1px solid var(--line);display:flex;gap:12px;justify-content:space-between;align-items:baseline}
+.it b{font-weight:600}.it i{font-style:normal;color:var(--acc);font-weight:700;white-space:nowrap}
+.ct{font:800 22px Fraunces,serif;color:var(--acc);margin:26px 0 4px}.dg{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}.dg span{padding:8px 0;border-bottom:1px solid var(--line)}
+.gal{columns:2;column-gap:10px}.gal .ph{margin-bottom:10px;cursor:zoom-in;break-inside:avoid}
+#lb{position:fixed;inset:0;background:#000e;z-index:50;display:none;align-items:center;justify-content:center;padding:16px}#lb.on{display:flex}#lb img{max-height:90vh;object-fit:contain;border-radius:10px}
+.info{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:10px}.info b{display:block}.info span{color:var(--mut)}
+form{display:grid;gap:10px;margin:14px 0 26px}form input,form select{padding:13px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:16px system-ui;width:100%}.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:30px 20px 100px}
+.wa{position:fixed;right:16px;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);background:#25D366;color:#06210f;font-weight:800;text-decoration:none;padding:14px 20px;border-radius:99px;z-index:30;box-shadow:0 6px 20px #0008;animation:pl 2.6s infinite}
+@keyframes pl{50%{transform:scale(1.06)}}
+@media(min-width:700px){.two{grid-template-columns:1fr 1fr;align-items:center}.cards{grid-template-columns:repeat(3,1fr)}.gal{columns:3}nav{order:0;width:auto}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.sl:first-child{opacity:1}}
 </style></head><body>
-<div class="top"><b>Taverna Demo</b><div class="lang"><button class="on" data-l="sq">SQ</button><button data-l="en">EN</button></div></div>
-<div class="hero"><div class="bg ph"><svg class="art" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="h" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b2a3a"/><stop offset="1" stop-color="#3a2a1e"/></linearGradient></defs><rect width="400" height="500" fill="url(#h)"/><path d="M0 60 Q100 110 200 70 T400 65" stroke="#0008" stroke-width="2" fill="none"/><circle cx="40" cy="70" r="22" fill="#E8B04A" opacity=".18"/><circle cx="40" cy="70" r="6" fill="#FFD98A"/><circle cx="110" cy="95" r="22" fill="#E8B04A" opacity=".18"/><circle cx="110" cy="95" r="6" fill="#FFD98A"/><circle cx="180" cy="75" r="22" fill="#E8B04A" opacity=".18"/><circle cx="180" cy="75" r="6" fill="#FFD98A"/><circle cx="250" cy="100" r="22" fill="#E8B04A" opacity=".18"/><circle cx="250" cy="100" r="6" fill="#FFD98A"/><circle cx="320" cy="72" r="22" fill="#E8B04A" opacity=".18"/><circle cx="320" cy="72" r="6" fill="#FFD98A"/><circle cx="375" cy="90" r="22" fill="#E8B04A" opacity=".18"/><circle cx="375" cy="90" r="6" fill="#FFD98A"/><rect y="330" width="400" height="170" fill="#4a2f1c"/><rect y="330" width="400" height="8" fill="#6a4529"/><ellipse cx="110" cy="385" rx="62" ry="16" fill="#f3efe6"/><ellipse cx="110" cy="380" rx="40" ry="10" fill="#d9c9a6"/><circle cx="98" cy="376" r="8" fill="#8a4b2a"/><circle cx="116" cy="378" r="8" fill="#8a4b2a"/><ellipse cx="270" cy="400" rx="70" ry="18" fill="#f3efe6"/><ellipse cx="270" cy="395" rx="46" ry="11" fill="#7aa05a"/><rect x="190" y="345" width="14" height="36" rx="3" fill="#f3efe6"/><ellipse cx="197" cy="338" rx="5" ry="9" fill="#FFB84A"/></svg></div>
-<div class="in"><h1 data-sq="Shija e Shqipërisë, në zemër të Tiranës" data-en="The taste of Albania, in the heart of Tirana">Shija e Shqipërisë, në zemër të Tiranës</h1><div class="pill" id="open"></div>
-<p data-sq="Receta tradicionale, produkte të freskëta, tavolina për çdo rast." data-en="Traditional recipes, fresh ingredients, a table for every occasion.">Receta tradicionale, produkte të freskëta, tavolina për çdo rast.</p>
-<a class="btn b1" href="https://wa.me/355000000000" data-sq="Rezervo në WhatsApp" data-en="Book on WhatsApp">Rezervo në WhatsApp</a>
-<a class="btn b2" href="#menu" data-sq="Shiko menunë" data-en="See the menu">Shiko menunë</a></div></div>
-<section class="two"><div><h2 data-sq="Rreth nesh" data-en="About us">Rreth nesh</h2>
-<p data-sq="Gatuajmë çdo ditë me receta të familjes: tavë kosi, qofte, peshk i pjekur dhe ëmbëlsira shtëpie. Ejani për drekë, darkë ose një kafe të ngadaltë." data-en="We cook every day from family recipes: baked lamb with yogurt, meatballs, grilled fish and home desserts. Come for lunch, dinner or a slow coffee.">Gatuajmë çdo ditë me receta të familjes: tavë kosi, qofte, peshk i pjekur dhe ëmbëlsira shtëpie. Ejani për drekë, darkë ose një kafe të ngadaltë.</p></div>
-<div class="pic ph"><svg class="art" viewBox="0 0 300 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="300" height="240" fill="#2d4a38"/><circle cx="150" cy="120" r="92" fill="#f3efe6"/><circle cx="150" cy="120" r="70" fill="#e7dfcf"/><circle cx="125" cy="108" r="18" fill="#8a4b2a"/><circle cx="160" cy="98" r="18" fill="#9a5630"/><circle cx="178" cy="132" r="18" fill="#8a4b2a"/><ellipse cx="128" cy="148" rx="26" ry="12" fill="#6f9a4e" transform="rotate(-20 128 148)"/><ellipse cx="150" cy="160" rx="22" ry="10" fill="#86b25f"/><circle cx="196" cy="100" r="9" fill="#d64a3a"/><rect x="18" y="40" width="6" height="160" rx="3" fill="#cfd8d2"/><rect x="274" y="40" width="10" height="160" rx="5" fill="#cfd8d2"/></svg></div></section>
-<section id="menu"><h2>Menu</h2><input class="sr" id="q" type="search" placeholder="Kërko / Search..."><div class="fc" id="fc"></div><div class="tabs" id="tabs"></div><div id="list"></div></section>
-<section id="book"><h2 data-sq="Rezervo tavolinë" data-en="Book a table">Rezervo tavolinë</h2>
-<form id="rf"><input id="rn" required placeholder="Emri / Name"><div class="g2"><input id="rd" type="date" required><select id="rt"></select></div>
-<select id="rg"></select><button class="btn b1" type="submit" data-sq="Dërgo në WhatsApp" data-en="Send on WhatsApp">Dërgo në WhatsApp</button></form></section>
-<section><h2 data-sq="Çfarë thonë klientët" data-en="What guests say">Çfarë thonë klientët</h2>
-<div class="rv"><b>★★★★★</b><p data-sq="Tavë kosi si e gjyshes. Shërbim i shpejtë." data-en="Tavë kosi like grandma's. Fast service.">Tavë kosi si e gjyshes. Shërbim i shpejtë.</p><span data-sq="Vlerësim shembull" data-en="Sample review">Vlerësim shembull</span></div>
-<div class="rv"><b>★★★★★</b><p data-sq="Vend i bukur për darkë me miq." data-en="Lovely place for dinner with friends.">Vend i bukur për darkë me miq.</p><span data-sq="Vlerësim shembull" data-en="Sample review">Vlerësim shembull</span></div></section>
-<section><h2 data-sq="Galeria" data-en="Gallery">Galeria</h2><div class="gal">
-<div class="ph"><svg class="art" viewBox="0 0 400 210" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="210" fill="#2a1f18"/><rect y="150" width="400" height="60" fill="#4a2f1c"/><line x1="64" y1="0" x2="64" y2="60" stroke="#0009" stroke-width="2"/><path d="M40 60 a24 24 0 0 1 48 0z" fill="#E8B04A"/><ellipse cx="64" cy="64" rx="40" ry="14" fill="#FFD98A" opacity=".25"/><line x1="200" y1="0" x2="200" y2="60" stroke="#0009" stroke-width="2"/><path d="M176 60 a24 24 0 0 1 48 0z" fill="#E8B04A"/><ellipse cx="200" cy="64" rx="40" ry="14" fill="#FFD98A" opacity=".25"/><line x1="336" y1="0" x2="336" y2="60" stroke="#0009" stroke-width="2"/><path d="M312 60 a24 24 0 0 1 48 0z" fill="#E8B04A"/><ellipse cx="336" cy="64" rx="40" ry="14" fill="#FFD98A" opacity=".25"/><rect x="40" y="130" width="90" height="10" fill="#6a4529"/><rect x="170" y="130" width="90" height="10" fill="#6a4529"/><rect x="290" y="130" width="90" height="10" fill="#6a4529"/></svg></div>
-<div class="ph"><svg class="art" viewBox="0 0 300 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="300" height="150" fill="#1d3a2c"/><ellipse cx="150" cy="78" rx="110" ry="52" fill="#f3efe6"/><path d="M85 80 Q130 40 205 70 L235 55 L230 90 L205 85 Q130 115 85 80Z" fill="#c9854a"/><circle cx="105" cy="74" r="3" fill="#2a1f18"/><circle cx="235" cy="108" r="14" fill="#F2D44A"/><circle cx="235" cy="108" r="8" fill="#FFF0A0"/></svg></div>
-<div class="ph"><svg class="art" viewBox="0 0 300 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="300" height="150" fill="#3a2a1e"/><ellipse cx="150" cy="95" rx="80" ry="26" fill="#f3efe6"/><ellipse cx="150" cy="86" rx="48" ry="16" fill="#fff"/><ellipse cx="150" cy="84" rx="40" ry="12" fill="#4a2a18"/><path d="M198 84 q22 0 22 14 q0 14 -22 8" fill="none" stroke="#fff" stroke-width="6"/><path d="M135 62 q-8 -14 0 -26 M155 60 q-8 -14 0 -26 M172 62 q-8 -14 0 -26" stroke="#fff6" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div></div></section>
-<section><h2 data-sq="Na gjeni këtu" data-en="Find us">Na gjeni këtu</h2>
-<div class="info"><b data-sq="Orari" data-en="Hours">Orari</b><span data-sq="Çdo ditë, 09:00 – 24:00" data-en="Every day, 09:00 – 24:00">Çdo ditë, 09:00 – 24:00</span></div>
-<div class="info"><b data-sq="Adresa" data-en="Address">Adresa</b><span>Rruga Demo 12, Tiranë</span></div>
-<a class="btn b1" href="https://maps.google.com/?q=Tirana" data-sq="Hap në hartë" data-en="Open in Maps">Hap në hartë</a>
-<a class="btn b2" href="tel:+355000000000" data-sq="Telefono" data-en="Call us">Telefono</a></section>
-<footer data-sq="Faqe demo. Ilustrime dhe të dhëna shembull, jo restorant real." data-en="Demo page. Sample illustrations and details, not a real restaurant.">Faqe demo. Ilustrime dhe të dhëna shembull, jo restorant real.</footer>
-<button class="ord" id="ob"></button><a class="wa" href="https://wa.me/355000000000">WhatsApp</a>
+<header id="hd"><a class="logo" href="#home">Taverna <b>Demo</b></a><div class="lang"><button class="on" data-l="sq">SQ</button><button data-l="en">EN</button></div>
+<nav id="nv"><a href="#home" data-sq="Kryefaqja" data-en="Home">Kryefaqja</a><a href="#menu" data-sq="Menu" data-en="Menu">Menu</a><a href="#gallery" data-sq="Galeria" data-en="Gallery">Galeria</a><a href="#contact" data-sq="Kontakt" data-en="Contact">Kontakt</a></nav></header>
+
+<main>
+<section class="pg h" id="home">
+<div class="hero"><div class="sl"><img src="hero.jpg" alt=""></div><div class="sl"><img src="room.jpg" alt=""></div><div class="sl"><img src="table.jpg" alt=""></div>
+<div class="hi"><div class="eb" data-sq="Kuzhinë shqiptare · Tiranë" data-en="Albanian kitchen · Tirana">Kuzhinë shqiptare · Tiranë</div>
+<h1 data-sq="Shija që të kthen në shtëpi" data-en="A taste that brings you home">Shija që të kthen në shtëpi</h1>
+<p data-sq="Receta tradicionale, gatuar çdo ditë me produkte të freskëta." data-en="Traditional recipes, cooked daily with fresh ingredients.">Receta tradicionale, gatuar çdo ditë me produkte të freskëta.</p>
+<a class="btn b1 wl" data-sq="Rezervo në WhatsApp" data-en="Book on WhatsApp">Rezervo në WhatsApp</a><a class="btn b2" href="#menu" data-sq="Shiko menunë" data-en="See the menu">Shiko menunë</a></div></div>
+<div class="sec two"><div class="ph rv" style="height:340px"><img src="home.jpg" alt=""></div>
+<div class="rv"><h2 data-sq="Sofra jonë" data-en="Our table">Sofra jonë</h2><p style="color:var(--mut)" data-sq="Gjella të ngadalta, byrekë të pjekur dhe pllaka me shije fshati. Ejani për drekë, darkë ose një kafe të gjatë me miq." data-en="Slow-cooked dishes, baked byrek and platters with village flavour. Come for lunch, dinner or a long coffee with friends.">Gjella të ngadalta, byrekë të pjekur dhe pllaka me shije fshati. Ejani për drekë, darkë ose një kafe të gjatë me miq.</p></div></div>
+<div class="sec" style="padding-top:0"><h2 class="rv" data-sq="Nga kuzhina" data-en="From the kitchen">Nga kuzhina</h2><div class="cards">
+<div class="ph card rv"><img src="platter.jpg" alt=""><span data-sq="Pllaka tradicionale" data-en="Traditional platter">Pllaka tradicionale</span></div>
+<div class="ph card rv"><img src="dishes.jpg" alt=""><span data-sq="Gatim shtëpie" data-en="Home cooking">Gatim shtëpie</span></div>
+<div class="ph card rv"><img src="table.jpg" alt=""><span data-sq="Festa e shijeve" data-en="A feast of flavours">Festa e shijeve</span></div></div></div>
+<div class="strip rv"><b data-sq="Çdo ditë, 09:00 – 24:00" data-en="Every day, 09:00 – 24:00">Çdo ditë, 09:00 – 24:00</b><span data-sq="Rruga Demo 12, Tiranë" data-en="Rruga Demo 12, Tirana">Rruga Demo 12, Tiranë</span></div>
+</section>
+
+<section class="pg" id="menu" hidden><h2 data-sq="Menuja" data-en="Menu">Menuja</h2>
+<div class="tabs"><button class="on" data-t="0" data-sq="Ushqime" data-en="Food">Ushqime</button><button data-t="1" data-sq="Pije" data-en="Drinks">Pije</button></div><div id="ml"></div></section>
+
+<section class="pg" id="gallery" hidden><h2 data-sq="Galeria" data-en="Gallery">Galeria</h2><div class="gal">
+<div class="ph rv"><img src="room.jpg" alt=""></div><div class="ph rv"><img src="platter.jpg" alt=""></div><div class="ph rv"><img src="hero.jpg" alt=""></div>
+<div class="ph rv"><img src="home.jpg" alt=""></div><div class="ph rv"><img src="dishes.jpg" alt=""></div><div class="ph rv"><img src="table.jpg" alt=""></div></div></section>
+
+<section class="pg" id="contact" hidden><h2 data-sq="Rezervo tavolinë" data-en="Book a table">Rezervo tavolinë</h2>
+<form id="rf"><input id="rn" required placeholder="Emri / Name"><div class="g2"><input id="rd" type="date" required><select id="rt"></select></div><select id="rg"></select>
+<button class="btn b1" type="submit" data-sq="Dërgo në WhatsApp" data-en="Send on WhatsApp">Dërgo në WhatsApp</button></form>
+<div class="info rv"><b data-sq="Orari" data-en="Hours">Orari</b><span data-sq="Çdo ditë, 09:00 – 24:00" data-en="Every day, 09:00 – 24:00">Çdo ditë, 09:00 – 24:00</span></div>
+<div class="info rv"><b data-sq="Adresa" data-en="Address">Adresa</b><span>Rruga Demo 12, Tiranë</span></div>
+<a class="btn b2 tl" data-sq="Telefono" data-en="Call us">Telefono</a><a class="btn b2" target="_blank" rel="noopener" href="https://maps.google.com/?q=Tirana" data-sq="Hap në hartë" data-en="Open in Maps">Hap në hartë</a></section>
+</main>
+<footer data-sq="Faqe demo me emër dhe të dhëna shembull. Fotot janë vetëm për shfaqje." data-en="Demo page with a sample name and details. Photos are for presentation only.">Faqe demo me emër dhe të dhëna shembull. Fotot janë vetëm për shfaqje.</footer>
+<a class="wa wl" href="#">WhatsApp</a><div id="lb"><img alt=""></div>
 <script>
-var W="https://wa.me/355000000000";
-var M=[["Nisje","Starters",[["Sallatë shqiptare","Albanian salad","Domate, kastravec, qepë, vaj ulliri","Tomato, cucumber, onion, olive oil",350,"v"],["Pllakë me djathë","Cheese plate","Djathë i bardhë, kaçkavall, ullinj","White cheese, kashkaval, olives",500,"v"],["Byrek me spinaq","Spinach byrek","Petë të holla, spinaq, djathë","Thin pastry, spinach, cheese",250,"vp"]]],
-["Kryesore","Mains",[["Tavë kosi","Baked lamb with yogurt","Mish qengji, kos, vezë, oriz","Lamb, yogurt, egg, rice",900,"p"],["Qofte të fërguara","Fried meatballs","Me patate të skuqura","With fries",650,""],["Fërgesë Tirane","Tirana fërgesë","Mëlçi, speca, domate","Liver, peppers, tomato",700,""],["Peshk i pjekur","Grilled fish","Peshku i ditës, limon, sallatë","Fish of the day, lemon, salad",1200,"p"]]],
-["Ëmbëlsira","Desserts",[["Ballokume","Ballokume","Biskotë me gjalpë dhe miell misri","Butter and cornmeal cookie",300,"v"],["Trileçe","Trilece","Biskotë e njomur në tre lloje qumështi","Sponge soaked in three milks",350,"v"]]],
-["Pije","Drinks",[["Espresso","Espresso","","",100,"v"],["Cappuccino","Cappuccino","","",150,"v"],["Limonadë shtëpie","House lemonade","","",250,"v"]]]];
-var U={all:["Të gjitha","All"],v:["Vegjetariane","Vegetarian"],p:["Të preferuarat","Popular"],pop:["Më i kërkuari","Popular"],ord:["Porosia ime","My order"],send:["Dërgo në WhatsApp","Send on WhatsApp"],hi:["Përshëndetje! Dua të rezervoj tavolinë.","Hello! I would like to book a table."],hd:["Hapur tani · mbyllet 24:00","Open now · closes 24:00"],hc:["Mbyllur · hapet 09:00","Closed · opens 09:00"],po:["Përshëndetje! Dua të porosis:","Hello! I would like to order:"]};
-var L=0,T=-1,F="",Q="",O={};
+var WA="355698647933"; /* ← SHKRUAJ NUMRIN TËND KËTU / PUT YOUR NUMBER HERE (country code, no + or spaces) */
+var F=[["Zogj fshati me jufka / patate / pilaf / qull me arra","Village poultry with jufka pasta / potatoes / pilaf / walnut porridge",2000],["Mish me leng","Meat in broth",350],["Supë pule","Chicken soup",200],["Supë mish vici oriental","Oriental veal soup",200],["Gjell me patate me mish vici","Veal and potato stew",300],["Berxolle, qofte dhe patate","Chops, meatballs and potatoes",750],["Spaghetti Ragu","Spaghetti Ragu",300],["Fileto pule me panxhar","Chicken fillet with beetroot",500],["Mini pizza","Mini pizza",150],["Burger","Burger",300],["Fileto, pilaf, patate, salcë koci","Fillet with pilaf, potatoes and sauce",500],["Brinjë vici","Veal ribs",700]];
+var D=[["Pije freskuese","Soft drinks",["Coca-Cola","Fanta","Sprite","Schweppes",["Portokall i freskët","Fresh orange juice"],["Ujë natyral / i gazuar","Still / sparkling water"]]],
+["Kafe & pije të ngrohta","Coffee & hot drinks",["Espresso","Macchiato","Cappuccino","Latte",["Kafe turke","Turkish coffee"],["Çaj mali","Mountain tea"]]],
+["Birra","Beer",["Tirana","Korça","Heineken","Amstel"]],
+["Verë & pije alkoolike","Wine & spirits",[["Verë e kuqe","Red wine"],["Verë e bardhë","White wine"],["Verë rosé","Rosé wine"],"Raki",["Uiski","Whisky"],"Vodka",["Xhin","Gin"]]],
+["Kokteje","Cocktails",["Mojito","Aperol Spritz","Gin & Tonic","Cuba Libre"]]];
+var L=0,T=0,P=["home","menu","gallery","contact"];
 function $(i){return document.getElementById(i)}
-function save(l){try{localStorage.setItem("lang",l)}catch(e){}}
-function draw(){
- var tb=[[-1,U.all[L]]].concat(M.map(function(c,i){return [i,c[L]]}));
- $("tabs").innerHTML=tb.map(function(t){return '<button class="'+(t[0]==T?'on':'')+'" data-t="'+t[0]+'">'+t[1]+'</button>'}).join('');
- $("fc").innerHTML=[["v",U.v[L]],["p",U.p[L]]].map(function(f){return '<button class="'+(F==f[0]?'on':'')+'" data-f="'+f[0]+'">'+f[1]+'</button>'}).join('');
- var h="",q=Q.toLowerCase();
- M.forEach(function(c,ci){if(T>=0&&T!=ci)return;
-  var rows=c[2].map(function(i,ii){return [i,ci+"-"+ii]}).filter(function(r){var i=r[0];
-   return (!F||i[5].indexOf(F)>-1)&&(!q||(i[0]+i[1]+i[2]+i[3]).toLowerCase().indexOf(q)>-1)});
-  if(!rows.length)return; if(T<0)h+='<div class="ch">'+c[L]+'</div>';
-  h+=rows.map(function(r){var i=r[0],d=i[2+L],n=O[r[1]]||0;
-   return '<div class="it"><div class="row"><span class="nm">'+i[L]+(i[5].indexOf("p")>-1?'<span class="bd">'+U.pop[L]+'</span>':'')+'</span><span class="dt"></span><span class="pr">'+i[4]+' lek</span><button class="ad" data-k="'+r[1]+'">'+(n?'<em>'+n+'</em>':'+')+'</button></div>'+(d?'<div class="ds">'+d+'</div>':'')+'</div>'}).join('')});
- $("list").innerHTML=h||'<p class="ds">—</p>';
- $("tabs").querySelectorAll("button").forEach(function(b){b.onclick=function(){T=+b.dataset.t;draw()}});
- $("fc").querySelectorAll("button").forEach(function(b){b.onclick=function(){F=F==b.dataset.f?"":b.dataset.f;draw()}});
- $("list").querySelectorAll(".ad").forEach(function(b){b.onclick=function(){O[b.dataset.k]=(O[b.dataset.k]||0)+1;draw()}});
- var n=0,t=0,lines=[];for(var k in O){var p=k.split("-"),it=M[p[0]][2][p[1]];n+=O[k];t+=O[k]*it[4];lines.push(O[k]+"x "+it[L])}
- var ob=$("ob");ob.style.display=n?"block":"none";ob.textContent=U.ord[L]+" ("+n+") · "+t+" lek · "+U.send[L];
- ob.onclick=function(){location.href=W+"?text="+encodeURIComponent(U.po[L]+"\n"+lines.join("\n")+"\nTotal: "+t+" lek")};
-}
-function status(){var h=new Date().getHours(),o=h>=9;var e=$("open");e.className="pill"+(o?"":" cl");e.innerHTML="<i></i>"+(o?U.hd[L]:U.hc[L])}
-function setL(l){L=l=="en"?1:0;document.documentElement.lang=l;save(l);
+function wa(t){return "https://wa.me/"+WA+(t?"?text="+encodeURIComponent(t):"")}
+function nm(x){return typeof x=="string"?x:x[L]}
+function draw(){var h="";
+ if(T==0)h=F.map(function(i){return '<div class="it"><b>'+i[L]+'</b><i>'+i[2]+' lek</i></div>'}).join('');
+ else h=D.map(function(c){return '<div class="ct">'+c[L]+'</div><div class="dg">'+c[2].map(function(x){return '<span>'+nm(x)+'</span>'}).join('')+'</div>'}).join('');
+ $("ml").innerHTML=h;document.querySelectorAll(".tabs button").forEach(function(b){b.classList.toggle("on",+b.dataset.t==T)})}
+function links(){document.querySelectorAll(".wl").forEach(function(a){a.href=wa(L?"Hello! I would like to book a table.":"Përshëndetje! Dua të rezervoj tavolinë.");a.target="_blank"});
+ document.querySelectorAll(".tl").forEach(function(a){a.href="tel:+"+WA})}
+function setL(l){L=l=="en"?1:0;document.documentElement.lang=l;try{localStorage.setItem("lang",l)}catch(e){}
  document.querySelectorAll("[data-"+l+"]").forEach(function(e){e.textContent=e.getAttribute("data-"+l)});
- document.querySelectorAll(".lang button").forEach(function(b){b.classList.toggle("on",b.dataset.l==l)});
- $("q").placeholder=L?"Search the menu...":"Kërko në menu...";draw();status()}
+ document.querySelectorAll(".lang button").forEach(function(b){b.classList.toggle("on",b.dataset.l==l)});$("rn").placeholder=L?"Name":"Emri";draw();links()}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12});
+function go(){var h=(location.hash||"#home").slice(1);if(P.indexOf(h)<0)h="home";
+ P.forEach(function(p){$(p).hidden=p!=h});document.querySelectorAll("nav a").forEach(function(a){a.classList.toggle("on",a.getAttribute("href")=="#"+h)});
+ window.scrollTo(0,0);document.querySelectorAll("#"+h+" .rv").forEach(function(e){e.classList.remove("in");io.observe(e)})}
+window.onhashchange=go;window.onscroll=function(){$("hd").classList.toggle("sc",scrollY>40)};
 document.querySelectorAll(".lang button").forEach(function(b){b.onclick=function(){setL(b.dataset.l)}});
-$("q").oninput=function(){Q=this.value;draw()};
-var rt=$("rt"),rg=$("rg");for(var h=12;h<=23;h++){rt.innerHTML+='<option>'+h+':00</option>'}
-for(var g=1;g<=10;g++){rg.innerHTML+='<option value="'+g+'">'+g+(g==1?" person":" people")+'</option>'}
+document.querySelectorAll(".tabs button").forEach(function(b){b.onclick=function(){T=+b.dataset.t;draw()}});
+document.querySelectorAll(".gal img").forEach(function(i){i.onclick=function(){$("lb").firstChild.src=i.src;$("lb").classList.add("on")}});
+$("lb").onclick=function(){this.classList.remove("on")};
+var rt=$("rt"),rg=$("rg");for(var h=12;h<=23;h++)rt.innerHTML+="<option>"+h+":00</option>";for(var g=1;g<=10;g++)rg.innerHTML+='<option value="'+g+'">'+g+(g==1?" person / person":" people / persona")+"</option>";
 $("rd").min=new Date().toISOString().slice(0,10);
-$("rf").onsubmit=function(e){e.preventDefault();
- var m=U.hi[L]+"\n"+$("rn").value+"\n"+$("rd").value+" "+$("rt").value+"\n"+$("rg").value+(L?" guests":" persona");
- location.href=W+"?text="+encodeURIComponent(m)};
+$("rf").onsubmit=function(e){e.preventDefault();location.href=wa((L?"Hello! I would like to book a table.":"Përshëndetje! Dua të rezervoj tavolinë.")+"\n"+$("rn").value+"\n"+$("rd").value+" "+$("rt").value+"\n"+$("rg").value+(L?" guests":" persona"))};
 var sv="sq";try{sv=localStorage.getItem("lang")||"sq"}catch(e){}
-setL(sv);
+setL(sv);go();
 </script></body></html>
