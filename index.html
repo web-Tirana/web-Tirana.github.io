@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Taverna Demo – Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F5F3;--surface:#FFFFFF;--ink:#14281F;--muted:#5B6B62;--line:#B9C4BD;--accent:#B3261E;--chip:#E3EAE5;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0F1A14;--surface:#16251D;--ink:#EAF1EC;--muted:#9DB0A5;--line:#3A4D42;--accent:#FF6B5E;--chip:#1F3228;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#0F1A14;--surface:#16251D;--ink:#EAF1EC;--muted:#9DB0A5;--line:#3A4D42;--accent:#FF6B5E;--chip:#1F3228;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{padding:28px 20px 16px;max-width:640px;margin:0 auto}
+h1{font:800 34px/1.05 "Bricolage Grotesque",system-ui,sans-serif;margin:0 0 6px;letter-spacing:-.5px}
+.sub{color:var(--muted);margin:0}
+.demo{display:inline-block;margin-top:12px;font-size:13px;color:var(--accent);border:1px solid var(--accent);padding:3px 10px;border-radius:99px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5;border-bottom:1px solid var(--line)}
+.bar{max-width:640px;margin:0 auto;display:flex;gap:8px;align-items:center;padding:10px 20px}
+.chips{display:flex;gap:8px;overflow-x:auto;flex:1;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips a{white-space:nowrap;text-decoration:none;color:var(--ink);background:var(--chip);padding:7px 14px;border-radius:99px;font-size:14px}
+.lang{display:flex;border:1px solid var(--line);border-radius:99px;overflow:hidden;flex:none}
+.lang button{border:0;background:none;color:var(--muted);font:600 13px system-ui;padding:7px 11px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main{max-width:640px;margin:0 auto;padding:8px 20px 48px}
+section{padding-top:26px}
+h2{font:800 22px "Bricolage Grotesque",system-ui,sans-serif;margin:0 0 10px}
+.item{padding:10px 0}
+.row{display:flex;align-items:baseline;gap:8px}
+.name{font-weight:600}
+.dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px);min-width:16px}
+.price{font-variant-numeric:tabular-nums;font-weight:600}
+.desc{color:var(--muted);font-size:14px;margin-top:2px}
+footer{max-width:640px;margin:0 auto;padding:0 20px 32px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Taverna Demo</h1>
+  <p class="sub" data-sq="Kuzhina shqiptare, Tiranë" data-en="Albanian cuisine, Tirana">Kuzhina shqiptare, Tiranë</p>
+  <span class="demo" data-sq="Menu shembull, jo restorant real" data-en="Sample menu, not a real restaurant">Menu shembull, jo restorant real</span>
+</header>
+<nav><div class="bar">
+  <div class="chips">
+    <a href="#nisje" data-sq="Nisje" data-en="Starters">Nisje</a>
+    <a href="#kryesore" data-sq="Kryesore" data-en="Mains">Kryesore</a>
+    <a href="#embelsira" data-sq="Ëmbëlsira" data-en="Desserts">Ëmbëlsira</a>
+    <a href="#pije" data-sq="Pije" data-en="Drinks">Pije</a>
+  </div>
+  <div class="lang" role="group" aria-label="Language">
+    <button data-l="sq" aria-pressed="true">SQ</button>
+    <button data-l="en" aria-pressed="false">EN</button>
+  </div>
+</div></nav>
+<main id="menu"></main>
+<footer data-sq="Çmimet janë në lek." data-en="Prices are in lek.">Çmimet janë në lek.</footer>
+<script>
+var M=[
+{id:"nisje",sq:"Nisje",en:"Starters",items:[
+["Sallatë shqiptare","Albanian salad","Domate, kastravec, qepë, vaj ulliri","Tomato, cucumber, onion, olive oil",350],
+["Pllakë me djathë","Cheese plate","Djathë i bardhë, kaçkavall, ullinj","White cheese, kashkaval, olives",500],
+["Byrek me spinaq","Spinach byrek","Petë të holla, spinaq, djathë","Thin pastry, spinach, cheese",250]]},
+{id:"kryesore",sq:"Kryesore",en:"Mains",items:[
+["Tavë kosi","Baked lamb with yogurt","Mish qengji, kos, vezë, oriz","Lamb, yogurt, egg, rice",900],
+["Qofte të fërguara","Fried meatballs","Me patate të skuqura","With fries",650],
+["Fërgesë Tirane","Tirana fërgesë","Mëlçi, speca, domate","Liver, peppers, tomato",700],
+["Peshk i pjekur","Grilled fish","Peshku i ditës, limon, sallatë","Fish of the day, lemon, salad",1200],
+["Pizza Margherita","Pizza Margherita","Salcë domatesh, mozzarella, borzilok","Tomato sauce, mozzarella, basil",700]]},
+{id:"embelsira",sq:"Ëmbëlsira",en:"Desserts",items:[
+["Ballokume","Ballokume","Biskotë tradicionale me gjalpë dhe miell misri","Traditional butter and cornmeal cookie",300],
+["Trileçe","Trilece","Biskotë e njomur në tre lloje qumështi","Sponge soaked in three kinds of milk",350]]},
+{id:"pije",sq:"Pije",en:"Drinks",items:[
+["Espresso","Espresso","","",100],
+["Cappuccino","Cappuccino","","",150],
+["Limonadë shtëpie","House lemonade","","",250],
+["Ujë mineral","Mineral water","","",100]]}
+];
+var lang="sq",root=document.getElementById("menu");
+function render(){
+  root.innerHTML=M.map(function(s){
+    return '<section id="'+s.id+'"><h2>'+s[lang]+'</h2>'+s.items.map(function(i){
+      var d=lang==="sq"?i[2]:i[3];
+      return '<div class="item"><div class="row"><span class="name">'+(lang==="sq"?i[0]:i[1])+'</span><span class="dots"></span><span class="price">'+i[4]+'</span></div>'+(d?'<div class="desc">'+d+'</div>':'')+'</div>';
+    }).join('')+'</section>';
+  }).join('');
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-"+lang+"]").forEach(function(e){e.textContent=e.getAttribute("data-"+lang)});
+  document.querySelectorAll(".lang button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===lang)});
+}
+document.querySelectorAll(".lang button").forEach(function(b){b.onclick=function(){lang=b.dataset.l;render()}});
+render();
+</script>
+</body>
+</html>
