@@ -38,17 +38,36 @@ h2{font-size:32px;margin-bottom:14px}
 .info b{display:block;margin-bottom:4px}.info span{color:var(--mut)}
 footer{text-align:center;color:var(--mut);font-size:13px;padding:10px 20px 90px}
 .wa{position:fixed;right:16px;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);background:#25D366;color:#06210f;font-weight:800;text-decoration:none;padding:14px 20px;border-radius:99px;z-index:9;box-shadow:0 6px 20px #0006}
+.pill{display:inline-block;margin:12px 0 0;padding:5px 12px;border-radius:99px;background:#0009;border:1px solid #fff4;font-size:14px}
+.pill i{display:inline-block;width:9px;height:9px;border-radius:50%;background:#3ddc84;margin-right:7px}.pill.cl i{background:#ff6b5e}
+.sr{width:100%;padding:12px 16px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:16px system-ui;margin-bottom:10px}
+.fc{display:flex;gap:8px;margin-bottom:10px}.fc button{background:none;color:var(--mut);border:1px dashed var(--line);padding:6px 14px;border-radius:99px;font:600 13px system-ui;cursor:pointer}.fc button.on{color:var(--acc);border-color:var(--acc)}
+.ch{font:800 20px "Bricolage Grotesque",sans-serif;margin:20px 0 2px;color:var(--acc)}
+.bd{font-size:11px;background:var(--acc);color:#1a1405;border-radius:99px;padding:1px 8px;margin-left:6px;font-weight:700}
+.ad{background:var(--card);color:var(--acc);border:1px solid var(--acc);border-radius:99px;width:30px;height:30px;font:700 18px system-ui;cursor:pointer;margin-left:6px}
+.ad em{font:700 13px system-ui;font-style:normal}
+form{display:grid;gap:10px}form input,form select{padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:16px system-ui;width:100%}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rv{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:10px}.rv b{color:var(--acc)}.rv span{display:block;color:var(--mut);font-size:13px;margin-top:6px}
+.ord{position:fixed;left:16px;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);right:140px;background:var(--acc);color:#1a1405;font:700 15px system-ui;border:0;border-radius:99px;padding:14px 18px;z-index:9;display:none;cursor:pointer;text-align:left}
+button.btn{border:0;cursor:pointer;font-size:16px}
 </style></head><body>
 <div class="top"><b>Taverna Demo</b><div class="lang"><button class="on" data-l="sq">SQ</button><button data-l="en">EN</button></div></div>
 <div class="hero"><div class="bg ph"><svg class="art" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="h" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b2a3a"/><stop offset="1" stop-color="#3a2a1e"/></linearGradient></defs><rect width="400" height="500" fill="url(#h)"/><path d="M0 60 Q100 110 200 70 T400 65" stroke="#0008" stroke-width="2" fill="none"/><circle cx="40" cy="70" r="22" fill="#E8B04A" opacity=".18"/><circle cx="40" cy="70" r="6" fill="#FFD98A"/><circle cx="110" cy="95" r="22" fill="#E8B04A" opacity=".18"/><circle cx="110" cy="95" r="6" fill="#FFD98A"/><circle cx="180" cy="75" r="22" fill="#E8B04A" opacity=".18"/><circle cx="180" cy="75" r="6" fill="#FFD98A"/><circle cx="250" cy="100" r="22" fill="#E8B04A" opacity=".18"/><circle cx="250" cy="100" r="6" fill="#FFD98A"/><circle cx="320" cy="72" r="22" fill="#E8B04A" opacity=".18"/><circle cx="320" cy="72" r="6" fill="#FFD98A"/><circle cx="375" cy="90" r="22" fill="#E8B04A" opacity=".18"/><circle cx="375" cy="90" r="6" fill="#FFD98A"/><rect y="330" width="400" height="170" fill="#4a2f1c"/><rect y="330" width="400" height="8" fill="#6a4529"/><ellipse cx="110" cy="385" rx="62" ry="16" fill="#f3efe6"/><ellipse cx="110" cy="380" rx="40" ry="10" fill="#d9c9a6"/><circle cx="98" cy="376" r="8" fill="#8a4b2a"/><circle cx="116" cy="378" r="8" fill="#8a4b2a"/><ellipse cx="270" cy="400" rx="70" ry="18" fill="#f3efe6"/><ellipse cx="270" cy="395" rx="46" ry="11" fill="#7aa05a"/><rect x="190" y="345" width="14" height="36" rx="3" fill="#f3efe6"/><ellipse cx="197" cy="338" rx="5" ry="9" fill="#FFB84A"/></svg></div>
-<div class="in"><h1 data-sq="Shija e Shqipërisë, në zemër të Tiranës" data-en="The taste of Albania, in the heart of Tirana">Shija e Shqipërisë, në zemër të Tiranës</h1>
+<div class="in"><h1 data-sq="Shija e Shqipërisë, në zemër të Tiranës" data-en="The taste of Albania, in the heart of Tirana">Shija e Shqipërisë, në zemër të Tiranës</h1><div class="pill" id="open"></div>
 <p data-sq="Receta tradicionale, produkte të freskëta, tavolina për çdo rast." data-en="Traditional recipes, fresh ingredients, a table for every occasion.">Receta tradicionale, produkte të freskëta, tavolina për çdo rast.</p>
 <a class="btn b1" href="https://wa.me/355000000000" data-sq="Rezervo në WhatsApp" data-en="Book on WhatsApp">Rezervo në WhatsApp</a>
 <a class="btn b2" href="#menu" data-sq="Shiko menunë" data-en="See the menu">Shiko menunë</a></div></div>
 <section class="two"><div><h2 data-sq="Rreth nesh" data-en="About us">Rreth nesh</h2>
 <p data-sq="Gatuajmë çdo ditë me receta të familjes: tavë kosi, qofte, peshk i pjekur dhe ëmbëlsira shtëpie. Ejani për drekë, darkë ose një kafe të ngadaltë." data-en="We cook every day from family recipes: baked lamb with yogurt, meatballs, grilled fish and home desserts. Come for lunch, dinner or a slow coffee.">Gatuajmë çdo ditë me receta të familjes: tavë kosi, qofte, peshk i pjekur dhe ëmbëlsira shtëpie. Ejani për drekë, darkë ose një kafe të ngadaltë.</p></div>
 <div class="pic ph"><svg class="art" viewBox="0 0 300 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="300" height="240" fill="#2d4a38"/><circle cx="150" cy="120" r="92" fill="#f3efe6"/><circle cx="150" cy="120" r="70" fill="#e7dfcf"/><circle cx="125" cy="108" r="18" fill="#8a4b2a"/><circle cx="160" cy="98" r="18" fill="#9a5630"/><circle cx="178" cy="132" r="18" fill="#8a4b2a"/><ellipse cx="128" cy="148" rx="26" ry="12" fill="#6f9a4e" transform="rotate(-20 128 148)"/><ellipse cx="150" cy="160" rx="22" ry="10" fill="#86b25f"/><circle cx="196" cy="100" r="9" fill="#d64a3a"/><rect x="18" y="40" width="6" height="160" rx="3" fill="#cfd8d2"/><rect x="274" y="40" width="10" height="160" rx="5" fill="#cfd8d2"/></svg></div></section>
-<section id="menu"><h2>Menu</h2><div class="tabs" id="tabs"></div><div id="list"></div></section>
+<section id="menu"><h2>Menu</h2><input class="sr" id="q" type="search" placeholder="Kërko / Search..."><div class="fc" id="fc"></div><div class="tabs" id="tabs"></div><div id="list"></div></section>
+<section id="book"><h2 data-sq="Rezervo tavolinë" data-en="Book a table">Rezervo tavolinë</h2>
+<form id="rf"><input id="rn" required placeholder="Emri / Name"><div class="g2"><input id="rd" type="date" required><select id="rt"></select></div>
+<select id="rg"></select><button class="btn b1" type="submit" data-sq="Dërgo në WhatsApp" data-en="Send on WhatsApp">Dërgo në WhatsApp</button></form></section>
+<section><h2 data-sq="Çfarë thonë klientët" data-en="What guests say">Çfarë thonë klientët</h2>
+<div class="rv"><b>★★★★★</b><p data-sq="Tavë kosi si e gjyshes. Shërbim i shpejtë." data-en="Tavë kosi like grandma's. Fast service.">Tavë kosi si e gjyshes. Shërbim i shpejtë.</p><span data-sq="Vlerësim shembull" data-en="Sample review">Vlerësim shembull</span></div>
+<div class="rv"><b>★★★★★</b><p data-sq="Vend i bukur për darkë me miq." data-en="Lovely place for dinner with friends.">Vend i bukur për darkë me miq.</p><span data-sq="Vlerësim shembull" data-en="Sample review">Vlerësim shembull</span></div></section>
 <section><h2 data-sq="Galeria" data-en="Gallery">Galeria</h2><div class="gal">
 <div class="ph"><svg class="art" viewBox="0 0 400 210" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="210" fill="#2a1f18"/><rect y="150" width="400" height="60" fill="#4a2f1c"/><line x1="64" y1="0" x2="64" y2="60" stroke="#0009" stroke-width="2"/><path d="M40 60 a24 24 0 0 1 48 0z" fill="#E8B04A"/><ellipse cx="64" cy="64" rx="40" ry="14" fill="#FFD98A" opacity=".25"/><line x1="200" y1="0" x2="200" y2="60" stroke="#0009" stroke-width="2"/><path d="M176 60 a24 24 0 0 1 48 0z" fill="#E8B04A"/><ellipse cx="200" cy="64" rx="40" ry="14" fill="#FFD98A" opacity=".25"/><line x1="336" y1="0" x2="336" y2="60" stroke="#0009" stroke-width="2"/><path d="M312 60 a24 24 0 0 1 48 0z" fill="#E8B04A"/><ellipse cx="336" cy="64" rx="40" ry="14" fill="#FFD98A" opacity=".25"/><rect x="40" y="130" width="90" height="10" fill="#6a4529"/><rect x="170" y="130" width="90" height="10" fill="#6a4529"/><rect x="290" y="130" width="90" height="10" fill="#6a4529"/></svg></div>
 <div class="ph"><svg class="art" viewBox="0 0 300 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="300" height="150" fill="#1d3a2c"/><ellipse cx="150" cy="78" rx="110" ry="52" fill="#f3efe6"/><path d="M85 80 Q130 40 205 70 L235 55 L230 90 L205 85 Q130 115 85 80Z" fill="#c9854a"/><circle cx="105" cy="74" r="3" fill="#2a1f18"/><circle cx="235" cy="108" r="14" fill="#F2D44A"/><circle cx="235" cy="108" r="8" fill="#FFF0A0"/></svg></div>
@@ -59,21 +78,49 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:10px 20px 90px}
 <a class="btn b1" href="https://maps.google.com/?q=Tirana" data-sq="Hap në hartë" data-en="Open in Maps">Hap në hartë</a>
 <a class="btn b2" href="tel:+355000000000" data-sq="Telefono" data-en="Call us">Telefono</a></section>
 <footer data-sq="Faqe demo. Ilustrime dhe të dhëna shembull, jo restorant real." data-en="Demo page. Sample illustrations and details, not a real restaurant.">Faqe demo. Ilustrime dhe të dhëna shembull, jo restorant real.</footer>
-<a class="wa" href="https://wa.me/355000000000">WhatsApp</a>
+<button class="ord" id="ob"></button><a class="wa" href="https://wa.me/355000000000">WhatsApp</a>
 <script>
-var M=[["Nisje","Starters",[["Sallatë shqiptare","Albanian salad","Domate, kastravec, qepë, vaj ulliri","Tomato, cucumber, onion, olive oil",350],["Pllakë me djathë","Cheese plate","Djathë i bardhë, kaçkavall, ullinj","White cheese, kashkaval, olives",500],["Byrek me spinaq","Spinach byrek","Petë të holla, spinaq, djathë","Thin pastry, spinach, cheese",250]]],
-["Kryesore","Mains",[["Tavë kosi","Baked lamb with yogurt","Mish qengji, kos, vezë, oriz","Lamb, yogurt, egg, rice",900],["Qofte të fërguara","Fried meatballs","Me patate të skuqura","With fries",650],["Fërgesë Tirane","Tirana fërgesë","Mëlçi, speca, domate","Liver, peppers, tomato",700],["Peshk i pjekur","Grilled fish","Peshku i ditës, limon, sallatë","Fish of the day, lemon, salad",1200]]],
-["Ëmbëlsira","Desserts",[["Ballokume","Ballokume","Biskotë me gjalpë dhe miell misri","Butter and cornmeal cookie",300],["Trileçe","Trilece","Biskotë e njomur në tre lloje qumështi","Sponge soaked in three milks",350]]],
-["Pije","Drinks",[["Espresso","Espresso","","",100],["Cappuccino","Cappuccino","","",150],["Limonadë shtëpie","House lemonade","","",250]]]];
-var L=0,T=0;
+var W="https://wa.me/355000000000";
+var M=[["Nisje","Starters",[["Sallatë shqiptare","Albanian salad","Domate, kastravec, qepë, vaj ulliri","Tomato, cucumber, onion, olive oil",350,"v"],["Pllakë me djathë","Cheese plate","Djathë i bardhë, kaçkavall, ullinj","White cheese, kashkaval, olives",500,"v"],["Byrek me spinaq","Spinach byrek","Petë të holla, spinaq, djathë","Thin pastry, spinach, cheese",250,"vp"]]],
+["Kryesore","Mains",[["Tavë kosi","Baked lamb with yogurt","Mish qengji, kos, vezë, oriz","Lamb, yogurt, egg, rice",900,"p"],["Qofte të fërguara","Fried meatballs","Me patate të skuqura","With fries",650,""],["Fërgesë Tirane","Tirana fërgesë","Mëlçi, speca, domate","Liver, peppers, tomato",700,""],["Peshk i pjekur","Grilled fish","Peshku i ditës, limon, sallatë","Fish of the day, lemon, salad",1200,"p"]]],
+["Ëmbëlsira","Desserts",[["Ballokume","Ballokume","Biskotë me gjalpë dhe miell misri","Butter and cornmeal cookie",300,"v"],["Trileçe","Trilece","Biskotë e njomur në tre lloje qumështi","Sponge soaked in three milks",350,"v"]]],
+["Pije","Drinks",[["Espresso","Espresso","","",100,"v"],["Cappuccino","Cappuccino","","",150,"v"],["Limonadë shtëpie","House lemonade","","",250,"v"]]]];
+var U={all:["Të gjitha","All"],v:["Vegjetariane","Vegetarian"],p:["Të preferuarat","Popular"],pop:["Më i kërkuari","Popular"],ord:["Porosia ime","My order"],send:["Dërgo në WhatsApp","Send on WhatsApp"],hi:["Përshëndetje! Dua të rezervoj tavolinë.","Hello! I would like to book a table."],hd:["Hapur tani · mbyllet 24:00","Open now · closes 24:00"],hc:["Mbyllur · hapet 09:00","Closed · opens 09:00"],po:["Përshëndetje! Dua të porosis:","Hello! I would like to order:"]};
+var L=0,T=-1,F="",Q="",O={};
+function $(i){return document.getElementById(i)}
+function save(l){try{localStorage.setItem("lang",l)}catch(e){}}
 function draw(){
- document.getElementById("tabs").innerHTML=M.map(function(c,i){return '<button class="'+(i==T?'on':'')+'" data-t="'+i+'">'+c[L]+'</button>'}).join('');
- document.getElementById("list").innerHTML=M[T][2].map(function(i){var d=i[2+L];return '<div class="it"><div class="row"><span class="nm">'+i[L]+'</span><span class="dt"></span><span class="pr">'+i[4]+' lek</span></div>'+(d?'<div class="ds">'+d+'</div>':'')+'</div>'}).join('');
- document.querySelectorAll("#tabs button").forEach(function(b){b.onclick=function(){T=+b.dataset.t;draw()}});
+ var tb=[[-1,U.all[L]]].concat(M.map(function(c,i){return [i,c[L]]}));
+ $("tabs").innerHTML=tb.map(function(t){return '<button class="'+(t[0]==T?'on':'')+'" data-t="'+t[0]+'">'+t[1]+'</button>'}).join('');
+ $("fc").innerHTML=[["v",U.v[L]],["p",U.p[L]]].map(function(f){return '<button class="'+(F==f[0]?'on':'')+'" data-f="'+f[0]+'">'+f[1]+'</button>'}).join('');
+ var h="",q=Q.toLowerCase();
+ M.forEach(function(c,ci){if(T>=0&&T!=ci)return;
+  var rows=c[2].map(function(i,ii){return [i,ci+"-"+ii]}).filter(function(r){var i=r[0];
+   return (!F||i[5].indexOf(F)>-1)&&(!q||(i[0]+i[1]+i[2]+i[3]).toLowerCase().indexOf(q)>-1)});
+  if(!rows.length)return; if(T<0)h+='<div class="ch">'+c[L]+'</div>';
+  h+=rows.map(function(r){var i=r[0],d=i[2+L],n=O[r[1]]||0;
+   return '<div class="it"><div class="row"><span class="nm">'+i[L]+(i[5].indexOf("p")>-1?'<span class="bd">'+U.pop[L]+'</span>':'')+'</span><span class="dt"></span><span class="pr">'+i[4]+' lek</span><button class="ad" data-k="'+r[1]+'">'+(n?'<em>'+n+'</em>':'+')+'</button></div>'+(d?'<div class="ds">'+d+'</div>':'')+'</div>'}).join('')});
+ $("list").innerHTML=h||'<p class="ds">—</p>';
+ $("tabs").querySelectorAll("button").forEach(function(b){b.onclick=function(){T=+b.dataset.t;draw()}});
+ $("fc").querySelectorAll("button").forEach(function(b){b.onclick=function(){F=F==b.dataset.f?"":b.dataset.f;draw()}});
+ $("list").querySelectorAll(".ad").forEach(function(b){b.onclick=function(){O[b.dataset.k]=(O[b.dataset.k]||0)+1;draw()}});
+ var n=0,t=0,lines=[];for(var k in O){var p=k.split("-"),it=M[p[0]][2][p[1]];n+=O[k];t+=O[k]*it[4];lines.push(O[k]+"x "+it[L])}
+ var ob=$("ob");ob.style.display=n?"block":"none";ob.textContent=U.ord[L]+" ("+n+") · "+t+" lek · "+U.send[L];
+ ob.onclick=function(){location.href=W+"?text="+encodeURIComponent(U.po[L]+"\n"+lines.join("\n")+"\nTotal: "+t+" lek")};
 }
-function setL(l){L=l=="en"?1:0;document.documentElement.lang=l;
+function status(){var h=new Date().getHours(),o=h>=9;var e=$("open");e.className="pill"+(o?"":" cl");e.innerHTML="<i></i>"+(o?U.hd[L]:U.hc[L])}
+function setL(l){L=l=="en"?1:0;document.documentElement.lang=l;save(l);
  document.querySelectorAll("[data-"+l+"]").forEach(function(e){e.textContent=e.getAttribute("data-"+l)});
- document.querySelectorAll(".lang button").forEach(function(b){b.classList.toggle("on",b.dataset.l==l)});draw()}
+ document.querySelectorAll(".lang button").forEach(function(b){b.classList.toggle("on",b.dataset.l==l)});
+ $("q").placeholder=L?"Search the menu...":"Kërko në menu...";draw();status()}
 document.querySelectorAll(".lang button").forEach(function(b){b.onclick=function(){setL(b.dataset.l)}});
-draw();
+$("q").oninput=function(){Q=this.value;draw()};
+var rt=$("rt"),rg=$("rg");for(var h=12;h<=23;h++){rt.innerHTML+='<option>'+h+':00</option>'}
+for(var g=1;g<=10;g++){rg.innerHTML+='<option value="'+g+'">'+g+(g==1?" person":" people")+'</option>'}
+$("rd").min=new Date().toISOString().slice(0,10);
+$("rf").onsubmit=function(e){e.preventDefault();
+ var m=U.hi[L]+"\n"+$("rn").value+"\n"+$("rd").value+" "+$("rt").value+"\n"+$("rg").value+(L?" guests":" persona");
+ location.href=W+"?text="+encodeURIComponent(m)};
+var sv="sq";try{sv=localStorage.getItem("lang")||"sq"}catch(e){}
+setL(sv);
 </script></body></html>
