@@ -6,16 +6,19 @@
 <style>
 :root{--bg:#0F0C09;--card:#1A1510;--ink:#F4EDE3;--mut:#B3A797;--line:#33291E;--acc:#D9A441;--red:#B8433A}
 *{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,sans-serif;overflow-x:hidden}
+html{background:var(--bg)}body{position:relative;color:var(--ink);font:16px/1.55 system-ui,-apple-system,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:-25%;z-index:-1;pointer-events:none;will-change:transform;background:radial-gradient(40% 35% at 20% 25%,#d9a44133,transparent 70%),radial-gradient(35% 30% at 80% 70%,#b8433a30,transparent 70%),radial-gradient(30% 30% at 60% 15%,#d9a44122,transparent 70%);animation:dr 24s ease-in-out infinite alternate}
+@keyframes dr{to{transform:translate3d(6%,-5%,0) scale(1.15) rotate(4deg)}}
 h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:800;line-height:1.1}
 img{display:block;width:100%;height:100%;object-fit:cover}
-header{position:fixed;top:0;left:0;right:0;z-index:20;padding:calc(env(safe-area-inset-top,0px) + 10px) 18px 8px;transition:.35s;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 12px}
+header{position:fixed;top:0;left:0;right:0;z-index:20;padding:calc(env(safe-area-inset-top,0px) + 12px) 18px 12px;background:linear-gradient(#0F0C09e6,#0F0C0900);transition:.35s;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 12px}
 header.sc{background:#0F0C09ee;backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
-.logo{font:800 20px Fraunces,serif;color:var(--ink);text-decoration:none}.logo b{color:var(--acc)}
-nav{display:flex;gap:4px;order:3;width:100%;overflow-x:auto;scrollbar-width:none}
-nav a{color:var(--ink);text-decoration:none;font-size:14px;padding:6px 12px;border-radius:99px;opacity:.8;white-space:nowrap}
-nav a.on{background:var(--acc);color:#1a1405;opacity:1;font-weight:700}
-.lang button{border:1px solid #fff5;background:#0007;color:#fff;font:600 12px system-ui;padding:5px 10px;cursor:pointer}
+.logo{font:800 30px Fraunces,serif;letter-spacing:-.3px;color:var(--ink);text-decoration:none;text-shadow:0 2px 14px #000b}.logo b{color:var(--acc)}
+nav{display:flex;gap:6px;order:3;width:100%;overflow-x:auto;scrollbar-width:none;padding:2px 0}
+nav a{flex:1;text-align:center;color:var(--ink);text-decoration:none;font-size:16px;font-weight:600;padding:10px 14px;border-radius:99px;background:#0F0C09b8;border:1px solid #ffffff26;backdrop-filter:blur(6px);white-space:nowrap;transition:.25s}
+nav a:hover,nav a:active{border-color:var(--acc);background:#d9a44133}
+nav a.on{background:var(--acc);color:#1a1405;border-color:var(--acc);font-weight:800;box-shadow:0 4px 16px #d9a44155}
+.lang button{border:1px solid #fff6;background:#0009;color:#fff;font:600 13px system-ui;padding:8px 13px;cursor:pointer}
 .lang button:first-child{border-radius:99px 0 0 99px}.lang button:last-child{border-radius:0 99px 99px 0}.lang .on{background:#fff;color:#000}
 .hero{position:relative;height:100svh;min-height:560px;display:flex;align-items:flex-end;overflow:hidden}
 .sl{position:absolute;inset:0;opacity:0;animation:fd 18s infinite}.sl:nth-child(2){animation-delay:6s}.sl:nth-child(3){animation-delay:12s}
@@ -30,9 +33,9 @@ nav a.on{background:var(--acc);color:#1a1405;opacity:1;font-weight:700}
 h1{font-size:clamp(40px,11vw,76px);letter-spacing:-1.5px}
 .hi p{margin:14px 0 24px;font-size:18px;color:#e6dccd}
 .btn{display:inline-block;text-decoration:none;font-weight:700;padding:13px 24px;border-radius:99px;margin:0 8px 8px 0;transition:.25s;border:0;cursor:pointer;font-size:16px}
-.b1{background:var(--acc);color:#1a1405}.b1:hover{transform:translateY(-3px);box-shadow:0 8px 24px #d9a44144}
+.b1{background:var(--acc);color:#1a1405;position:relative;overflow:hidden}.b1:after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(100deg,transparent,#ffffff70,transparent);transform:skewX(-20deg);animation:sh 5s infinite}@keyframes sh{0%,65%{left:-70%}100%{left:130%}}.b1:hover{transform:translateY(-3px);box-shadow:0 8px 24px #d9a44144}
 .b2{border:1px solid #fff8;color:#fff;background:none}.b2:hover{background:#fff2}
-.pg{padding:96px 20px 60px;max-width:760px;margin:0 auto}.pg.h{padding:0;max-width:none}
+.pg{padding:calc(env(safe-area-inset-top,0px) + 150px) 20px 60px;max-width:760px;margin:0 auto}.pg.h{padding:0;max-width:none}
 .sec{max-width:760px;margin:0 auto;padding:56px 20px}
 h2{font-size:clamp(30px,8vw,44px);margin-bottom:16px}
 .rv{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
@@ -52,8 +55,8 @@ form{display:grid;gap:10px;margin:14px 0 26px}form input,form select{padding:13p
 footer{text-align:center;color:var(--mut);font-size:13px;padding:30px 20px 100px}
 .wa{position:fixed;right:16px;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);background:#25D366;color:#06210f;font-weight:800;text-decoration:none;padding:14px 20px;border-radius:99px;z-index:30;box-shadow:0 6px 20px #0008;animation:pl 2.6s infinite}
 @keyframes pl{50%{transform:scale(1.06)}}
-@media(min-width:700px){.two{grid-template-columns:1fr 1fr;align-items:center}.cards{grid-template-columns:repeat(3,1fr)}.gal{columns:3}nav{order:0;width:auto}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.sl:first-child{opacity:1}}
+@media(min-width:700px){.pg:not(.h){padding-top:120px}.two{grid-template-columns:1fr 1fr;align-items:center}.cards{grid-template-columns:repeat(3,1fr)}.gal{columns:3}nav{order:0;width:auto}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.sl:first-child{opacity:1}}
 </style></head><body>
 <header id="hd"><a class="logo" href="#home">Taverna <b>Demo</b></a><div class="lang"><button class="on" data-l="sq">SQ</button><button data-l="en">EN</button></div>
 <nav id="nv"><a href="#home" data-sq="Kryefaqja" data-en="Home">Kryefaqja</a><a href="#menu" data-sq="Menu" data-en="Menu">Menu</a><a href="#gallery" data-sq="Galeria" data-en="Gallery">Galeria</a><a href="#contact" data-sq="Kontakt" data-en="Contact">Kontakt</a></nav></header>
