@@ -57,6 +57,15 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:30px 20px 100px
 @keyframes pl{50%{transform:scale(1.06)}}
 @media(min-width:700px){.pg:not(.h){padding-top:120px}.two{grid-template-columns:1fr 1fr;align-items:center}.cards{grid-template-columns:repeat(3,1fr)}.gal{columns:3}nav{order:0;width:auto}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.sl:first-child{opacity:1}}
+
+.cb{position:sticky;top:var(--hh,120px);z-index:15;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -20px 6px;padding:10px 20px;background:#0F0C09f2;backdrop-filter:blur(8px)}
+.cb::-webkit-scrollbar{display:none}
+.cb button{flex:none;background:var(--card);color:var(--ink);border:1px solid var(--line);padding:10px 16px;border-radius:99px;font:600 15px system-ui;cursor:pointer;white-space:nowrap;transition:.2s}
+.cb button.on{background:var(--acc);color:#1a1405;border-color:var(--acc);font-weight:800}
+.ct{scroll-margin-top:calc(var(--hh,120px) + 70px)}
+.it{align-items:center}.it .tx{flex:1;min-width:0}
+.pic{width:88px;height:88px;flex:none;border-radius:12px;overflow:hidden}
+.tg{display:inline-block;font:700 11px system-ui;padding:3px 9px;border-radius:99px;margin-top:6px;background:#d9a44122;color:var(--acc);border:1px solid #d9a44155}
 </style></head><body>
 <header id="hd"><a class="logo" href="#home">Taverna <b>Demo</b></a><div class="lang"><button class="on" data-l="sq">SQ</button><button data-l="en">EN</button></div>
 <nav id="nv"><a href="#home" data-sq="Kryefaqja" data-en="Home">Kryefaqja</a><a href="#menu" data-sq="Menu" data-en="Menu">Menu</a><a href="#gallery" data-sq="Galeria" data-en="Gallery">Galeria</a><a href="#contact" data-sq="Kontakt" data-en="Contact">Kontakt</a></nav></header>
@@ -78,7 +87,7 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:30px 20px 100px
 </section>
 
 <section class="pg" id="menu" hidden><h2 data-sq="Menuja" data-en="Menu">Menuja</h2>
-<div class="tabs"><button class="on" data-t="0" data-sq="Ushqime" data-en="Food">Ushqime</button><button data-t="1" data-sq="Pije" data-en="Drinks">Pije</button></div><div id="ml"></div></section>
+<div class="tabs"><button class="on" data-t="0" data-sq="Ushqime" data-en="Food">Ushqime</button><button data-t="1" data-sq="Pije" data-en="Drinks">Pije</button></div><div class="cb" id="cb"></div><div id="ml"></div></section>
 
 <section class="pg" id="gallery" hidden><h2 data-sq="Galeria" data-en="Gallery">Galeria</h2><div class="gal">
 <div class="ph rv"><img src="IMG_0168.jpeg" alt=""></div><div class="ph rv"><img src="IMG_0170.jpeg" alt=""></div><div class="ph rv"><img src="IMG_0167.jpeg" alt=""></div>
@@ -95,7 +104,11 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:30px 20px 100px
 <a class="wa wl" href="#">WhatsApp</a><div id="lb"><img alt=""></div>
 <script>
 var WA="355698647933"; /* ← SHKRUAJ NUMRIN TËND KËTU / PUT YOUR NUMBER HERE (country code, no + or spaces) */
-var F=[["Zogj fshati me jufka / patate / pilaf / qull me arra","Village poultry with jufka pasta / potatoes / pilaf / walnut porridge",2000],["Mish me leng","Meat in broth",350],["Supë pule","Chicken soup",200],["Supë mish vici oriental","Oriental veal soup",200],["Gjell me patate me mish vici","Veal and potato stew",300],["Berxolle, qofte dhe patate","Chops, meatballs and potatoes",750],["Spaghetti Ragu","Spaghetti Ragu",300],["Fileto pule me panxhar","Chicken fillet with beetroot",500],["Mini pizza","Mini pizza",150],["Burger","Burger",300],["Fileto, pilaf, patate, salcë koci","Fillet with pilaf, potatoes and sauce",500],["Brinjë vici","Veal ribs",700]];
+var F=[["Supa","Soups",[["Supë pule","Chicken soup",200],["Supë mish vici oriental","Oriental veal soup",200]]],
+["Gjella","Cooked dishes",[["Zogj fshati me jufka / patate / pilaf / qull me arra","Village poultry with jufka pasta / potatoes / pilaf / walnut porridge",2000,"s","IMG_0170.jpeg"],["Gjell me patate me mish vici","Veal and potato stew",300,"p","IMG_0171.jpeg"],["Mish me leng","Meat in broth",350],["Fileto pule me panxhar","Chicken fillet with beetroot",500],["Fileto, pilaf, patate, salcë koci","Fillet with pilaf, potatoes and sauce",500]]],
+["Skarë","Grill",[["Berxolle, qofte dhe patate","Chops, meatballs and potatoes",750,"p"],["Brinjë vici","Veal ribs",700]]],
+["Makarona & të shpejta","Pasta & quick bites",[["Spaghetti Ragu","Spaghetti Ragu",300],["Burger","Burger",300,"p"],["Mini pizza","Mini pizza",150]]]];
+var TG={p:["Më i kërkuari","Popular"],s:["Për t'u ndarë","For sharing"]};
 var D=[["Pije freskuese","Soft drinks",["Coca-Cola","Fanta","Sprite","Schweppes",["Portokall i freskët","Fresh orange juice"],["Ujë natyral / i gazuar","Still / sparkling water"]]],
 ["Kafe & pije të ngrohta","Coffee & hot drinks",["Espresso","Macchiato","Cappuccino","Latte",["Kafe turke","Turkish coffee"],["Çaj mali","Mountain tea"]]],
 ["Birra","Beer",["Tirana","Korça","Heineken","Amstel"]],
@@ -105,10 +118,19 @@ var L=0,T=0,P=["home","menu","gallery","contact"];
 function $(i){return document.getElementById(i)}
 function wa(t){return "https://wa.me/"+WA+(t?"?text="+encodeURIComponent(t):"")}
 function nm(x){return typeof x=="string"?x:x[L]}
-function draw(){var h="";
- if(T==0)h=F.map(function(i){return '<div class="it"><b>'+i[L]+'</b><i>'+i[2]+' lek</i></div>'}).join('');
- else h=D.map(function(c){return '<div class="ct">'+c[L]+'</div><div class="dg">'+c[2].map(function(x){return '<span>'+nm(x)+'</span>'}).join('')+'</div>'}).join('');
- $("ml").innerHTML=h;document.querySelectorAll(".tabs button").forEach(function(b){b.classList.toggle("on",+b.dataset.t==T)})}
+function item(i){var tg=i[3]?'<div><span class="tg">'+TG[i[3]][L]+'</span></div>':'';
+ var pic=i[4]?'<div class="pic"><img src="'+i[4]+'" alt="" loading="lazy" onerror="this.parentNode.remove()"></div>':'';
+ return '<div class="it">'+pic+'<div class="tx"><b>'+i[L]+'</b>'+tg+'</div><i>'+i[2]+' lek</i></div>'}
+function hh(){document.documentElement.style.setProperty("--hh",$("hd").offsetHeight+"px")}
+function hl(){var m=$("menu");if(m.hidden)return;var cur=0;document.querySelectorAll("#ml .ct").forEach(function(e,k){if(e.getBoundingClientRect().top<$("hd").offsetHeight+110)cur=k});
+ var bs=document.querySelectorAll("#cb button");bs.forEach(function(b,k){b.classList.toggle("on",k==cur)});var a=bs[cur];if(a)$("cb").scrollTo({left:a.offsetLeft-20,behavior:"smooth"})}
+function draw(){var h="",cats=[];
+ if(T==0){cats=F.map(function(c){return c[L]});h=F.map(function(c,k){return '<div class="ct" id="k'+k+'">'+c[L]+'</div>'+c[2].map(item).join('')}).join('')}
+ else{cats=D.map(function(c){return c[L]});h=D.map(function(c,k){return '<div class="ct" id="k'+k+'">'+c[L]+'</div><div class="dg">'+c[2].map(function(x){return '<span>'+nm(x)+'</span>'}).join('')+'</div>'}).join('')}
+ $("ml").innerHTML=h;
+ $("cb").innerHTML=cats.map(function(t,k){return '<button data-k="'+k+'">'+t+'</button>'}).join('');
+ document.querySelectorAll("#cb button").forEach(function(b){b.onclick=function(){$("k"+b.dataset.k).scrollIntoView({behavior:"smooth",block:"start"})}});
+ document.querySelectorAll(".tabs button").forEach(function(b){b.classList.toggle("on",+b.dataset.t==T)});hh();hl()}
 function links(){document.querySelectorAll(".wl").forEach(function(a){a.href=wa(L?"Hello! I would like to book a table.":"Përshëndetje! Dua të rezervoj tavolinë.");a.target="_blank"});
  document.querySelectorAll(".tl").forEach(function(a){a.href="tel:+"+WA})}
 function setL(l){L=l=="en"?1:0;document.documentElement.lang=l;try{localStorage.setItem("lang",l)}catch(e){}
@@ -118,7 +140,7 @@ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isInter
 function go(){var h=(location.hash||"#home").slice(1);if(P.indexOf(h)<0)h="home";
  P.forEach(function(p){$(p).hidden=p!=h});document.querySelectorAll("nav a").forEach(function(a){a.classList.toggle("on",a.getAttribute("href")=="#"+h)});
  window.scrollTo(0,0);document.querySelectorAll("#"+h+" .rv").forEach(function(e){e.classList.remove("in");io.observe(e)})}
-window.onhashchange=go;window.onscroll=function(){$("hd").classList.toggle("sc",scrollY>40)};
+window.onhashchange=go;window.onscroll=function(){$("hd").classList.toggle("sc",scrollY>40);hl()};window.onresize=hh;
 document.querySelectorAll(".lang button").forEach(function(b){b.onclick=function(){setL(b.dataset.l)}});
 document.querySelectorAll(".tabs button").forEach(function(b){b.onclick=function(){T=+b.dataset.t;draw()}});
 document.querySelectorAll(".gal img").forEach(function(i){i.onclick=function(){$("lb").firstChild.src=i.src;$("lb").classList.add("on")}});
